@@ -1,4 +1,4 @@
-# California Housing Price Prediction - Assignment 2
+# California Housing Prices - Assignment 2
 
 This repository contains the `.ipynb` files for Assignment 2. The project studies the California Housing dataset to predict house prices. The dataset includes information like location, number of rooms, population, income, and median house value.
 
@@ -33,6 +33,3 @@ This repository contains the `.ipynb` files for Assignment 2. The project studie
 3. Load `RIDGE_AND_LASSO.ipynb` for Ridge and Lasso regression.
 4. Keep the `housing.csv` file in the same path as the notebooks.
 
-## Optional
-
-* You can include screenshots of plots from the notebooks to better understand the results.
