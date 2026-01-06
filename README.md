@@ -44,8 +44,6 @@ All coding questions are implemented in:
 
 `WIDS_WEEK1_Study_of_models_Week1.ipynb`
 
-These problems are based on real-life type situations and mainly use **Pandas, NumPy, and Matplotlib**.
-
 ---
 
 ### Q6: Space Farm Productivity Crisis
