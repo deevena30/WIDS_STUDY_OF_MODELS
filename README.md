@@ -1,6 +1,6 @@
 # Study of Models – Week 1 & Week 2
 
-This repository contains **Week 1 and Week 2 assignments** for the *Study of Models* project. These assignments helped me understand the **basics of data science, statistics, data visualization, NumPy, Pandas, and machine learning models**.
+This repository contains **Week 1 and Week 2 assignments** for the *Study of Models* course. These assignments helped me understand the **basics of data science, statistics, data visualization, NumPy, Pandas, and machine learning models**.
 
 All the work is done using **Python and Jupyter Notebooks**, and I have added comments in the code to explain what each step is doing.
 
@@ -33,8 +33,6 @@ These questions focus on understanding basic concepts like:
 * Why we use **box plots, histograms, scatter plots, and violin plots**
 * Tracing **recursive functions** without running the code
 * Basics of **hypothesis testing** and when to use t, F, and chi-square distributions
-
-These questions helped in building strong theoretical understanding.
 
 ---
 
@@ -133,55 +131,72 @@ These questions help improve reasoning skills.
 
 ## Week 2: California Housing Price Analysis
 
-All Week 2 work is done in:
+This week focuses on **understanding the data, building a proper ML pipeline, training a model, and analyzing the results**.
+
+All the work is done in:
 
 `WIDS_STUDY_OF_MODELS_WEEK2.ipynb`
 
-**Dataset:** California Housing dataset (`housing.csv`)
+---
+
+## 1. Data Explanation
+
+**Dataset:** California Housing Dataset (`housing.csv`)
+
+Each row represents a housing block in California.
+
+Important columns:
+
+* `longitude`, `latitude` → location of the block
+* `housingMedianAge` → age of houses
+* `totalRooms`, `totalBedrooms` → room information
+* `population`, `households` → people living in the block
+* `medianIncome` → income level of the area
+* `medianHouseValue` → house price (this is the **target variable**)
+
+The goal is to **predict median house value** using the other features.
 
 ---
 
-### Dataset Description
-
-The dataset contains information about houses such as:
-
-* Location (latitude, longitude)
-* Number of rooms and bedrooms
-* Population and households
-* Median income
-* Median house value (target variable)
-
----
-
-### Data Exploration
+## 2. Understanding the Data
 
 Steps performed:
 
-* Checked dataset shape and column names
-* Displayed first 10 rows
-* Used `.info()` and `.describe()` to understand data
-* Identified the feature with highest variance
+* Checked **shape of dataset** (rows and columns)
+* Listed **column names**
+* Displayed **first 10 rows** to understand structure
+* Used `.info()` to check data types and missing values
+* Used `.describe()` to understand mean, spread, and variance
+
+From this, we identified which features have high variance and wide range of values.
 
 ---
 
-### Univariate Analysis
+## 3. Data Visualization & Analysis
+
+### Histograms (Univariate Analysis)
 
 * Plotted histograms for all numeric columns
 * Tried different bin sizes
-* Explained common ways to reduce skewness such as:
+* Observed skewness in features like income and population
 
-  * Log transformation
-  * Square root transformation
+**Common ways to reduce skewness (explained in comments):**
+
+* Log transformation
+* Square root transformation
+* Box-Cox method
 
 ---
 
-### Outlier Detection
+### Box Plots (Outlier Detection)
 
-* Used box plots to find outliers in:
+* Used box plots to detect outliers in:
 
   * Median Income
   * Average Rooms
   * Population
+
+This helps in understanding extreme values in the data.
 
 ---
 
@@ -189,77 +204,101 @@ Steps performed:
 
 * Computed correlation matrix
 * Plotted heatmap
-* Used correlation results to decide which features to keep
+* Observed that **latitude and longitude have weak direct correlation** with house value
+
+This was used as a reason to **exclude latitude and longitude** in the final regression model.
 
 ---
 
 ### Location-Based Visualization
 
 * Scatter plot of Longitude vs Latitude
-* Color shows Median House Value
-* Point size shows Population
+* Color represents Median House Value
+* Point size represents Population
+
+This plot helps visually understand how house prices vary across locations.
 
 ---
 
-### PCA (Principal Component Analysis)
+## 4. Machine Learning Pipeline
 
-* Explained why **scaling is needed before PCA**
-* Applied PCA on scaled data
+A **scikit-learn Pipeline** is used to make the workflow clean and structured.
+
+Pipeline steps:
+
+1. **Scaling** – StandardScaler is used so that all features are on the same scale
+2. **Model** – Multiple Linear Regression is applied
+
+**Why scaling is needed:**
+
+* Features have very different ranges
+* Scaling helps models and PCA work correctly
+
+---
+
+## 5. PCA (Dimensionality Reduction)
+
+Steps:
+
+* Applied PCA on scaled features
 * Plotted explained variance ratio
 * Selected top 2 principal components
-* Scatter plot of PC1 vs PC2 colored by house value
+
+**Why PCA is used:**
+
+* To reduce dimensions
+* To understand main patterns in the data
+
+Scatter plot of PC1 vs PC2 is colored using Median House Value.
 
 ---
 
-### Multiple Linear Regression
+## 6. Model Training & Results
 
-* Built a regression model using scikit-learn Pipeline
-* Removed latitude and longitude from final model
-* Printed coefficients and intercept
+* Trained Multiple Linear Regression model
+* Printed model **coefficients** and **intercept**
 
----
-
-### Model Evaluation
-
-Metrics used:
+### Evaluation Metrics Used:
 
 * Mean Squared Error (MSE)
 * Mean Absolute Error (MAE)
 * R² Score
 * Adjusted R² Score
 
-Also understood:
+**Important observations:**
 
-* Why high R² is not always good
-* Why low training loss is not always preferred
-
----
-
-### Model Plots
-
-* Predicted vs Actual values
-* Residuals vs Predicted values
+* High R² does not always mean a perfect model
+* Very low training loss can indicate overfitting
 
 ---
 
-## Bonus: Ridge and Lasso Regression
+## 7. Model Performance Plots
+
+* **Predicted vs Actual plot** → shows how close predictions are to real values
+* **Residuals vs Predicted plot** → helps check patterns and errors
+
+These plots are useful to judge model quality.
+
+---
+
+## Bonus: Ridge & Lasso Regression
 
 Implemented in:
-
 `RIDGE_AND_LASSO.ipynb`
 
-This notebook includes:
-
-* Ridge regression (L2 regularization)
-* Lasso regression (L1 regularization)
-* Comparison with normal linear regression
-* Explanation of overfitting and regularization
+* Ridge regression reduces large coefficients using L2 penalty
+* Lasso regression can remove less important features using L1 penalty
+* Helps handle overfitting and multicollinearity
 
 ---
 
-These assignments helped me understand:
+## Final Learning Outcome
 
-* How to work with real datasets
+From this assignment, I learned:
+
+* How to understand and clean real datasets
 * How to visualize and analyze data
-* How regression models work
-* How to evaluate model performance
+* How to build a complete ML pipeline
+* How to evaluate and interpret model results
+
+I have explained all the results and observations using plots and comments in the notebook.
