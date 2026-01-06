@@ -1,4 +1,4 @@
-# Study of Models – Week 1 & Week 2
+# ID-1 Study of Models – Week 1 & Week 2 -MIDTERM REPORT
 
 This repository contains **Week 1 and Week 2 assignments** for the *Study of Models* course. These assignments helped me understand the **basics of data science, statistics, data visualization, NumPy, Pandas, and machine learning models**.
 
@@ -129,7 +129,7 @@ These questions help improve reasoning skills.
 
 ---
 
-## Week 2: California Housing Price Analysis
+## Week 2: California Housing Price Analysis (MIDTERM)
 
 This week focuses on **understanding the data, building a proper ML pipeline, training a model, and analyzing the results**.
 
