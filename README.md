@@ -14,7 +14,7 @@ WIDS_Week1/
 │── dataset/
 │   └── CSV files used for Week 1 problems
 
-WIDS_Week2/
+MIDTERM_REPORT/
 │── WIDS_STUDY_OF_MODELS_WEEK2.ipynb
 │── RIDGE_AND_LASSO.ipynb
 │── housing.csv
